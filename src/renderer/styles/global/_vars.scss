@@ -1,0 +1,22 @@
+body {
+	--ff:
+		'Inter',
+		sans-serif;
+	--bs-offset: 0 8px 24px;
+	--bs-offset-search: 0 -8px 24px;
+	--width-focus: 3px;
+	--color-focus: var(--color-accent);
+	--color-accent: hsl(209, 61%, 50%);
+	--color-accent-light: hsla(209, 61%, 50%, .08);
+	--color-bg-btn-accent: linear-gradient(351deg, hsl(215, 100%, 50%) 25%, hsl(209, 61%, 50%) 100%);
+	--scroll-bg: var(--color-bg);
+	--scroll-handle-bg: var(--color-bg-form);
+
+	@media screen and (prefers-reduced-motion: no-preference) {
+		--trns: .3s ease;
+	}
+
+	@media screen and (prefers-reduced-motion: reduce) {
+		--trns: .1s ease;
+	}
+}

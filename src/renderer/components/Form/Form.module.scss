@@ -1,0 +1,89 @@
+.form {
+	background-color: var(--color-bg-form);
+
+	transition:
+		background-color var(--trns),
+		border-color var(--trns);
+
+	@media (min-width: 550px) {
+		padding: 25px;
+		border: 2px solid var(--color-border-card);
+		border-radius: 10px;
+	}
+
+	@media (max-width: 549px) {
+		padding: 25px 15px;
+	}
+}
+
+.legend {
+	color: var(--color-title);
+	font-weight: 700;
+
+	transition: color var(--trns);
+
+	@media (min-width: 768px) {
+		font-size: 30px;
+	}
+
+	@media (max-width: 767px) and (min-width: 320px) {
+		display: flex;
+		align-items: center;
+
+		font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (767 - 320)));
+	}
+}
+
+.list {
+	@media (min-width: 768px) {
+		padding: 15px;
+	}
+}
+
+.item {
+	position: relative;
+
+	&:before,
+	&:after {
+		position: absolute;
+		left: 0;
+
+		width: 100%;
+		height: 1px;
+
+		background-color: var(--color-description);
+		opacity: .1;
+
+		content: '';
+	}
+
+	&:before {
+		top: 0;
+	}
+
+	&:after {
+		bottom: 0;
+	}
+
+	&:not(:first-child),
+	&:not(:last-child) {
+
+		&:before {
+			height: 1px;
+		}
+	}
+
+	&:first-child {
+
+		&:before {
+			height: 1.5px;
+		}
+	}
+
+	&:last-child {
+
+		&:after {
+			height: 2px;
+		}
+	}
+}

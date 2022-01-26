@@ -1,0 +1,28 @@
+.navbar {
+	@media (min-width: 768px) {
+		left: 0;
+	}
+
+	@media (max-width: 767px) {
+		bottom: 16px;
+		left: 16px;
+
+		width: calc(100% - 32px);
+		height: 60px;
+	}
+}
+
+.list {
+	@media (max-width: 767px) {
+		justify-content: center;
+	}
+}
+
+.item {
+
+	&:not(:last-child) {
+		@media (max-width: 767px) {
+			margin-right: 10px;
+		}
+	}
+}

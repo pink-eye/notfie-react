@@ -1,0 +1,49 @@
+.settingsList {
+	width: 100%;
+
+	@media (max-width: 767px) {
+		margin-top: 30px;
+	}
+
+	@media (min-width: 550px) {
+		padding-inline: 15px;
+	}
+}
+
+.settingsItem {
+
+	&:not(:first-child) {
+		margin-top: 30px;
+	}
+}
+
+.option {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	justify-content: space-between;
+	padding-block: 5px;
+
+	label {
+		padding-block: 15px;
+	}
+}
+
+.optionTitle {
+	color: var(--color-description);
+	font-weight: 400;
+	line-height: 26px / 18px * 100%;
+
+	transition: color var(--trns);
+
+	@media (min-width: 768px) {
+		font-size: 16px;
+	}
+
+	@media (max-width: 767px) and (min-width: 320px) {
+		display: flex;
+		align-items: center;
+
+		font-size: 16px;
+	}
+}

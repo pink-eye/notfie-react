@@ -1,0 +1,17 @@
+.github
+.husky
+.vscode
+.webpack
+out
+node_modules
+src/renderer/styles/vendor
+
+**/*.jsx
+**/*.tsx
+**/*.ts
+**/*.js
+**/*.yml
+**/*.json
+**/*.ejs
+**/*.md
+**/*.svg

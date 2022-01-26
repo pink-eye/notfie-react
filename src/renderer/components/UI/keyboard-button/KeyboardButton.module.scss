@@ -1,0 +1,46 @@
+.keyboardBtn {
+	position: relative;
+
+	padding: 5px 10px;
+	border: 3px solid transparent;
+	border-radius: 5px;
+
+	color: var(--color-text-kbtn);
+	font-size: 16px;
+	font-family: var(--ff);
+	text-align: center;
+
+	background-color: var(--color-bg-kbtn);
+
+	box-shadow:
+		0 0 1px 1px var(--color-bs-kbtn),
+		0 3px 0 var(--color-bs-kbtn),
+		0 1px 0 var(--color-bs-kbtn);
+
+	transform: translate3d(0, 0, 3px);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	cursor: pointer;
+
+	transition:
+		background-color var(--trns),
+		border-color var(--trns),
+		box-shadow var(--trns),
+		transform var(--trns);
+
+	&:hover,
+	&:focus {
+		background-color: var(--color-bg-kbtn-active);
+		outline: none;
+	}
+
+	&:active {
+		background-color: var(--color-bg-kbtn-active);
+		box-shadow:
+			0 0 1px 1px var(--color-bs-kbtn),
+			0 1px 0 var(--color-bs-kbtn),
+			0 1px 0 var(--color-bs-kbtn);
+
+		transform: translateY(2px);
+	}
+}
