@@ -1,8 +1,8 @@
 name: Release
 on:
-    release:
-        types:
-            - created
+    push:
+        tags:
+            - 'v*'
 
 jobs:
     publish_on_linux:
@@ -13,11 +13,11 @@ jobs:
               with:
                   node-version: 16
             - name: install dependencies
-              run: npm install
+              run: yarn --frozen-lockfile
             - name: publish
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: npm run publish
+              run: yarn run publish
 
     publish_on_mac:
         runs-on: macos-latest
@@ -27,11 +27,11 @@ jobs:
               with:
                   node-version: 16
             - name: install dependencies
-              run: npm install
+              run: yarn --frozen-lockfile
             - name: publish
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: npm run publish
+              run: yarn run publish
 
     publish_on_win:
         runs-on: windows-latest
@@ -41,8 +41,8 @@ jobs:
               with:
                   node-version: 16
             - name: install dependencies
-              run: npm install
+              run: yarn --frozen-lockfile
             - name: publish
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: npm run publish
+              run: yarn run publish
