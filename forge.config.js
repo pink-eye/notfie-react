@@ -8,14 +8,18 @@ module.exports = {
 					name: 'notfie-react',
 				},
 			},
+			draft: true,
 		},
 	],
-	packagerConfig: {},
+	packagerConfig: {
+		executableName: 'Notfie'
+	},
 	makers: [
 		{
 			name: '@electron-forge/maker-squirrel',
 			config: {
-				iconUrl: 'https://raw.githubusercontent.com/pink-eye/notfie-react/master/assets/icon.ico',
+				iconUrl:
+					'https://raw.githubusercontent.com/pink-eye/notfie-react/master/assets/icon.ico',
 			},
 		},
 		{
