@@ -8,12 +8,10 @@ module.exports = {
 					name: 'notfie-react',
 				},
 			},
-			draft: true,
 		},
 	],
 	packagerConfig: {
 		name: 'notfie',
-		executableName: 'Notfie'
 	},
 	makers: [
 		{
