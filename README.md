@@ -39,7 +39,6 @@ The main goal of the project is to create simple and comfortable application to 
 ## 💥 Features
 
 -   Shortcuts
--   Launch when system starts
 -   System, dark and light themes
 -   Import and export storage
 -   Navigate the app using the keyboard
