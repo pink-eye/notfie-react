@@ -12,6 +12,7 @@ module.exports = {
 		},
 	],
 	packagerConfig: {
+		name: 'notfie',
 		executableName: 'Notfie'
 	},
 	makers: [
