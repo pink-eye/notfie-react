@@ -1,9 +1,10 @@
-const { app, BrowserWindow, globalShortcut, Tray, Menu } = require('electron')
+const { app, BrowserWindow, globalShortcut, Tray, Menu, shell } = require('electron')
 const path = require('path')
 
 if (require('electron-squirrel-startup')) app.quit()
 
 const APP_NAME = 'Notfie'
+const URL_HOMEPAGE = 'https://github.com/pink-eye/notfie-react'
 let mainWindow = null
 let tray = null
 let icon = ''
@@ -22,7 +23,7 @@ const createTray = () => {
 
 		const contextMenu = Menu.buildFromTemplate([
 			{ label: `Open ${APP_NAME}`, click: () => mainWindow.show() },
-			{ label: 'Help' },
+			{ label: 'Help', click: () => shell.openExternal(URL_HOMEPAGE) },
 			{ type: 'separator' },
 			{ label: `Quit ${APP_NAME}`, click: () => app.exit() },
 		])
