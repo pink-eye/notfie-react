@@ -15,7 +15,7 @@ module.exports = {
 		{
 			name: '@electron-forge/maker-squirrel',
 			config: {
-				iconUrl: 'https://i.imgur.com/yCUm713.png',
+				iconUrl: 'https://raw.githubusercontent.com/pink-eye/notfie-react/master/assets/icon.ico',
 			},
 		},
 		{
