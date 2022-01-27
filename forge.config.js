@@ -22,16 +22,32 @@ module.exports = {
 			},
 		},
 		{
+			name: '@electron-forge/maker-dmg',
+			config: {
+				icon: './assets/icon.icns',
+			},
+		},
+		{
 			name: '@electron-forge/maker-zip',
 			platforms: ['darwin'],
 		},
 		{
 			name: '@electron-forge/maker-deb',
-			config: {},
+			config: {
+				options: {
+					icon: './assets/icon.png',
+					homepage: 'https://github.com/pink-eye/notfie-react',
+				},
+			},
 		},
 		{
 			name: '@electron-forge/maker-rpm',
-			config: {},
+			config: {
+				options: {
+					icon: './assets/icon.png',
+					homepage: 'https://github.com/pink-eye/notfie-react',
+				},
+			},
 		},
 	],
 	plugins: [
