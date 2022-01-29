@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
 	publishers: [
 		{
@@ -12,11 +14,13 @@ module.exports = {
 	],
 	packagerConfig: {
 		name: 'notfie',
+		icon: path.resolve(__dirname, 'assets/icon'),
 	},
 	makers: [
 		{
 			name: '@electron-forge/maker-squirrel',
 			config: {
+				loadingGif: './assets/loading.gif',
 				iconUrl:
 					'https://raw.githubusercontent.com/pink-eye/notfie-react/master/assets/icon.ico',
 			},
