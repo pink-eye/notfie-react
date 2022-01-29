@@ -1,8 +1,8 @@
 {
 	"name": "notfie",
 	"productName": "Notfie",
-	"version": "1.0.0",
-	"description": "The simple app to make notes",
+	"version": "1.0.1",
+	"description": "The open-source app to make notes. Licensed GPLv3",
 	"main": ".webpack/main",
 	"scripts": {
 		"start": "electron-forge start",
