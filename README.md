@@ -5,22 +5,19 @@
 
 <h1 align="center">Notfie</h1>
 
+<p align="center"> The open-source app to make notes.</p>
 <div align="center">
 <a href="https://www.gnu.org/licenses/gpl-3.0" alt="License: GPLv3">
 <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg">
 </a>
 </div>
 
----
-
-<p align="center"> The open-source app to make notes.
-    <br>
-</p>
-
 ## 📝 Table of Contents
 
 -   [About](#about)
 -   [Screenshots](#screenshots)
+-   [Features](#features)
+-   [Building](#building)
 -   [Built Using](#built_using)
 -   [Authors](#authors)
 -   [License](#license)
@@ -45,6 +42,22 @@ The main goal of the project is to create simple and comfortable application to 
 -   Responsive layout (it means the app looks good on each device)
 -   Launch app when system starts (optional)
 
+## 🛠️ Building
+
+```
+# Clone this repo
+git clone https://github.com/pink-eye/notfie-react
+
+# Install dependencies
+yarn add
+
+# Create a package
+yarn run package
+
+# or create a package and an installer at once
+yarn run make
+```
+
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 -   [Electron Forge](https://electronforge.io/)
@@ -58,8 +71,4 @@ The main goal of the project is to create simple and comfortable application to 
 
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-Notfie is Free Software: You can use, study share and improve it at your
-will. Specifically you can redistribute and/or modify it under the terms of the
-[GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
-published by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+See [LICENSE](https://github.com/pink-eye/notfie-react/blob/master/LICENSE)
