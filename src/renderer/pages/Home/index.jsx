@@ -10,6 +10,7 @@ import stylesGrid from 'renderer/components/Grid/Grid.module.scss'
 import Preloader from 'renderer/components/Preloader'
 import SearchBar from 'renderer/components/SearchBar'
 import { v4 as uuidV4 } from 'uuid'
+import { copyToClipboard } from 'renderer/utils/copyToClipboard'
 
 const LoadOpenedCard = lazy(() => import('renderer/components/OpenedCard'))
 
@@ -85,10 +86,7 @@ const Home = () => {
 	const copyCard = id => {
 		const reqCard = cardArray.find(item => item.id === id)
 
-		navigator.clipboard
-			.writeText(`Title: ${reqCard.title}, Description: ${reqCard.description}`)
-			.then(() => {})
-			.catch(console.error)
+		copyToClipboard(`Title: ${reqCard.title}, Description: ${reqCard.description}`)
 	}
 
 	const handleClickAdd = event => {
