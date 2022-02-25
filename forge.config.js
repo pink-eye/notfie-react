@@ -15,12 +15,13 @@ module.exports = {
 	packagerConfig: {
 		name: 'notfie',
 		icon: path.resolve(__dirname, 'assets/icon'),
+		platform: 'all',
 	},
 	makers: [
 		{
 			name: '@electron-forge/maker-squirrel',
 			config: {
-				loadingGif: './assets/loading.gif',
+				loadingGif: path.join(__dirname, 'assets/loading.gif'),
 				iconUrl:
 					'https://raw.githubusercontent.com/pink-eye/notfie-react/master/assets/icon.ico',
 			},
@@ -28,7 +29,7 @@ module.exports = {
 		{
 			name: '@electron-forge/maker-dmg',
 			config: {
-				icon: './assets/icon.icns',
+				icon: path.resolve(__dirname, 'assets/icon.icns'),
 			},
 		},
 		{
@@ -39,7 +40,7 @@ module.exports = {
 			name: '@electron-forge/maker-deb',
 			config: {
 				options: {
-					icon: './assets/icon.png',
+					icon: path.resolve(__dirname, 'assets/icon.png'),
 					homepage: 'https://github.com/pink-eye/notfie-react',
 				},
 			},
@@ -48,7 +49,7 @@ module.exports = {
 			name: '@electron-forge/maker-rpm',
 			config: {
 				options: {
-					icon: './assets/icon.png',
+					icon: path.resolve(__dirname, 'assets/icon.png'),
 					homepage: 'https://github.com/pink-eye/notfie-react',
 				},
 			},
