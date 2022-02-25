@@ -3,6 +3,7 @@ import styles from './OpenedCard.module.scss'
 import Svg from 'renderer/components/UI/svg'
 import makeFriendlyDate from 'renderer/utils/makeFriendlyDate'
 import TextareaAutosize from 'react-textarea-autosize'
+import { countWordsAndChars } from './helper'
 
 const openedCardInitialValue = { id: null, title: null, description: null, birth: null }
 
@@ -20,15 +21,12 @@ const OpenedCard = ({ isOpen, remove, copy }, ref) => {
 	}
 
 	const clearFields = () => {
+		setOpenedCard(() => openedCardInitialValue)
+
 		if (titleRef && descriptionRef) {
 			titleRef.value = ''
 			descriptionRef.value = ''
 		}
-	}
-
-	const reset = () => {
-		setOpenedCard(() => openedCardInitialValue)
-		setTimeout(clearFields, 300)
 	}
 
 	useImperativeHandle(ref, () => ({
@@ -37,7 +35,7 @@ const OpenedCard = ({ isOpen, remove, copy }, ref) => {
 			fillFields(card)
 			setOpenedCard(() => card)
 		},
-		reset,
+		reset: () => setTimeout(clearFields, 300),
 	}))
 
 	useEffect(() => {
@@ -81,6 +79,12 @@ const OpenedCard = ({ isOpen, remove, copy }, ref) => {
 					</aside>
 					{makeFriendlyDate(openedCard.birth)}
 				</time>
+				<div className={styles.birth}>
+					<aside>
+						<Svg width="22px" height="22px" id="calc" />
+					</aside>
+					{countWordsAndChars(openedCard.description)}
+				</div>
 				<div className={styles.actions}>
 					<button
 						className={`${styles.action} btn-reset`}
