@@ -1,7 +1,7 @@
 import * as React from 'react'
 import useClickOutside from 'renderer/hooks/useClickOutside'
 import useToggle from 'renderer/hooks/useToggle'
-import getCloseElement from 'renderer/utils/getCloseElement'
+import queryClosest from 'renderer/utils/queryClosest'
 import styles from './Dropdown.module.scss'
 
 const Dropdown = ({
@@ -20,22 +20,23 @@ const Dropdown = ({
 	useClickOutside(dropdownRef, close)
 
 	const focusCurrentChoice = target => {
-		let dropdown = getCloseElement(target, 'dropdown')
+		let dropdown = queryClosest(target, '.dropdown')
 		let dropdownBtnAll = dropdown.querySelectorAll(`.${styles.dropdownBtn}`)
 
 		for (let index = 0, { length } = dropdownBtnAll; index < length; index++) {
-			const dropdownBtn = dropdownBtnAll[index]
+			let dropdownBtn = dropdownBtnAll[index]
 
 			if (dropdownBtn.textContent.trim() === active) {
 				setTimeout(() => {
 					dropdownBtn.focus()
 
+					dropdownBtn = null
 					dropdown = null
 					dropdownBtnAll = null
 
 					return
 				}, 100)
-			}
+			} else dropdownBtn = null
 		}
 	}
 
@@ -45,7 +46,7 @@ const Dropdown = ({
 	}
 
 	const handleClickList = ({ target }) => {
-		let dropdownBtn = getCloseElement(target, `${styles.btn}`)
+		let dropdownBtn = queryClosest(target, `.${styles.btn}`)
 
 		if (!dropdownBtn) {
 			dropdownBtn = null

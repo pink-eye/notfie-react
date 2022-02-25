@@ -56,7 +56,9 @@ const DragNDrop = () => {
 				const data = JSON.parse(reader.result)
 
 				if (!data.cardArray && !data.settings)
-					invalidImport('Sorry, this file either does not contain required data or has errors :(')
+					invalidImport(
+						'Sorry, this file either does not contain required data or has errors :('
+					)
 				else {
 					validImport()
 
@@ -73,11 +75,8 @@ const DragNDrop = () => {
 	}
 
 	const validateFile = () => {
-		let field = document.querySelector(`.${styles.dragNDrop}`)
-
 		if (inputRef.current?.files.length === 0) {
 			invalidImport('Firstly, you must import something')
-			field = null
 			return
 		}
 
@@ -88,8 +87,6 @@ const DragNDrop = () => {
 			validImport()
 			readInputFile()
 		}
-
-		field = null
 	}
 
 	const handleFile = ({ target }) => {
@@ -112,8 +109,15 @@ const DragNDrop = () => {
 	return (
 		<div ref={dragNDropRef}>
 			<div className={`${styles.dragNDrop}`}>
-				<p className={`${styles.dragNDropTip}`}>Drag your files here or click in this area.</p>
-				<input ref={inputRef} type="file" accept=".json" className={styles.dragNDropField}></input>
+				<p className={`${styles.dragNDropTip}`}>
+					Drag your files here or click in this area.
+				</p>
+				<input
+					ref={inputRef}
+					type="file"
+					accept=".json"
+					className={styles.dragNDropField}
+				></input>
 			</div>
 			<div className={`${styles.dragNDropActions}`}>
 				<a href="storage.json" download className="btn-primary btn-reset">

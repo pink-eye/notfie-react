@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
 import Svg from 'renderer/components/UI/svg'
-import getCloseElement from 'renderer/utils/getCloseElement'
+import queryClosest from 'renderer/utils/queryClosest'
 import styles from './Sidebar.module.scss'
 
 const Sidebar = ({ tabState = {}, changeTab = () => {}, extraItems = [], position }) => {
 	const handleClick = ({ target }) => {
-		let btnTab = getCloseElement(target, 'tab')
-		let btnAction = getCloseElement(target, 'action')
+		let btnTab = queryClosest(target, '.tab')
+		let btnAction = queryClosest(target, '.action')
 
 		if (!btnTab && !btnAction) return
 

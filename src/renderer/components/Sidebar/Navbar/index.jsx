@@ -1,12 +1,12 @@
 import React, { memo, useEffect } from 'react'
-import getCloseElement from 'renderer/utils/getCloseElement'
+import queryClosest from 'renderer/utils/queryClosest'
 import Svg from 'renderer/components/UI/svg'
 import sidebarStyles from '../Sidebar.module.scss'
 import navbarStyles from './Navbar.module.scss'
 
 const Navbar = ({ tabState = {}, changeTab = () => {} }) => {
 	const handleClick = ({ target }) => {
-		let btnTab = getCloseElement(target, 'tab')
+		let btnTab = queryClosest(target, '.tab')
 
 		if (!btnTab) return
 
@@ -18,7 +18,9 @@ const Navbar = ({ tabState = {}, changeTab = () => {} }) => {
 		// CTRL + SHIFT + E
 		if (event.ctrlKey && event.shiftKey && event.keyCode === 69) {
 			let firstSidebarBtn = document.querySelector(`.${sidebarStyles.action}`)
+
 			firstSidebarBtn?.focus()
+
 			firstSidebarBtn = null
 		}
 	}

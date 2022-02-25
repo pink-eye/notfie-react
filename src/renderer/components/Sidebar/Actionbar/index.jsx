@@ -1,12 +1,12 @@
 import React, { memo, useEffect } from 'react'
-import getCloseElement from 'renderer/utils/getCloseElement'
+import queryClosest from 'renderer/utils/queryClosest'
 import Dropdown from 'renderer/components/UI/dropdown'
 import sidebarStyles from '../Sidebar.module.scss'
 import actionbarStyles from './Actionbar.module.scss'
 
 const Actionbar = ({ items }) => {
 	const handleClick = ({ target }) => {
-		let btnAction = getCloseElement(target, 'action')
+		let btnAction = queryClosest(target, '.action')
 
 		if (!btnAction) return
 
@@ -19,7 +19,9 @@ const Actionbar = ({ items }) => {
 		if (event.ctrlKey && event.shiftKey && event.keyCode === 65) {
 			let actionBar = document.querySelector(`.${actionbarStyles.actionbar}`)
 			let firstSidebarBtn = actionBar.querySelector(`.${sidebarStyles.action}`)
+
 			firstSidebarBtn?.focus()
+
 			firstSidebarBtn = null
 			actionBar = null
 		}

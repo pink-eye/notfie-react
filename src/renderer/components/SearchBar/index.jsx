@@ -21,7 +21,7 @@ const SearchBar = ({ handleChange }, ref) => {
 	useEffect(() => isOpen && handleChange(input.trim()), [debouncedInput])
 
 	return (
-		<form className={`${styles.search} ${isOpen ? styles.onOpen: ''}`}>
+		<form className={`${styles.search} ${isOpen ? styles.onOpen : ''}`}>
 			<input
 				ref={fieldRef}
 				className={styles.field}
@@ -29,7 +29,8 @@ const SearchBar = ({ handleChange }, ref) => {
 				name="search"
 				id="search"
 				onChange={({ target }) => setInput(() => target.value)}
-				placeholder="Search"></input>
+				placeholder="Search"
+			></input>
 		</form>
 	)
 }

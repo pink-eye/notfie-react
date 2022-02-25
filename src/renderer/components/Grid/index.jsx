@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from 'renderer/components/Card'
-import getCloseElement from 'renderer/utils/getCloseElement'
+import queryClosest from 'renderer/utils/queryClosest'
 import styles from './Grid.module.scss'
 import cardStyles from 'renderer/components/Card/Card.module.scss'
 
@@ -12,11 +12,14 @@ const Grid = ({ cardArray, openCard, removeCard, copyCard }) => {
 		if (flippedCardAll.length === 0) return
 
 		for (let index = 0, { length } = flippedCardAll; index < length; index++) {
-			const flippedCard = flippedCardAll[index]
+			let flippedCard = flippedCardAll[index]
 			let gridItem = flippedCard.closest(`.${styles.item}`)
+
 			flippedCard.classList.remove(`${cardStyles.isFlipped}`)
 			gridItem.classList.remove(`${styles.isFlipped}`)
+
 			gridItem = null
+			flippedCard = null
 		}
 
 		flippedCardAll = null
@@ -24,8 +27,8 @@ const Grid = ({ cardArray, openCard, removeCard, copyCard }) => {
 	}
 
 	const handleClick = ({ target }) => {
-		let actionBackSide = getCloseElement(target, 'actionBackSide')
-		let card = getCloseElement(target, 'card')
+		let actionBackSide = queryClosest(target, '.actionBackSide')
+		let card = queryClosest(target, '.card')
 
 		flipBackEachCard()
 
@@ -56,14 +59,14 @@ const Grid = ({ cardArray, openCard, removeCard, copyCard }) => {
 	}
 
 	const handleContextMenu = ({ target }) => {
-		let card = getCloseElement(target, 'card')
+		let card = queryClosest(target, '.card')
 
 		if (!card?.dataset?.id) {
 			card = null
 			return
 		}
 
-		let gridItem = getCloseElement(card, `${styles.item}`)
+		let gridItem = queryClosest(card, `.${styles.item}`)
 
 		gridItem.classList.toggle(`${styles.isFlipped}`)
 		card.classList.toggle(`${cardStyles.isFlipped}`)
