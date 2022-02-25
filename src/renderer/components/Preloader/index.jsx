@@ -7,8 +7,14 @@ const Preloader = () => {
 	const [isHidden, toggle, hide, show] = useToggle(false)
 
 	const remove = () => {
+		preloaderRef.current?.addEventListener(
+			'transitionend',
+			() => preloaderRef.current.remove(),
+			{
+				once: true,
+			}
+		)
 		hide()
-		setTimeout(() => preloaderRef.current?.remove(), 300)
 	}
 
 	useEffect(() => {

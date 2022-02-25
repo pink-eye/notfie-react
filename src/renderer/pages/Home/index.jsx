@@ -42,9 +42,9 @@ const Home = () => {
 		let card = document.activeElement
 		let gridItem = card.parentNode
 
-		gridItem.classList.add(`${stylesGrid.onDeleting}`)
+		gridItem.addEventListener('transitionend', () => removeCard(id), { once: true })
 
-		setTimeout(() => removeCard(id), 300)
+		gridItem.classList.add(`${stylesGrid.onDeleting}`)
 
 		card = null
 		gridItem = null
