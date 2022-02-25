@@ -84,6 +84,7 @@
 	width: auto;
 	max-height: 125px;
 	padding: 5px;
+	border: 3px solid var(--color-bg);
 	border-radius: 10px;
 	overflow-y: auto;
 	overscroll-behavior: contain;
@@ -135,7 +136,7 @@
 		position: absolute;
 
 		aspect-ratio: 1 / 1;
-		width: 10px;
+		width: 8px;
 		border-radius: 50%;
 
 		transform: translateX(-27.5px);
@@ -151,7 +152,7 @@
 		background-color: transparent;
 
 		&:before {
-			border: 3px solid var(--color-description);
+			border: 2px solid var(--color-description);
 		}
 	}
 
@@ -161,7 +162,7 @@
 		background-color: var(--color-accent);
 
 		&:before {
-			border: 3px solid hsl(0, 0%, 100%);
+			border: 2px solid hsl(0, 0%, 100%);
 		}
 	}
 
