@@ -1,4 +1,4 @@
-export const countWordsAndChars = str => {
+const countWordsAndChars = str => {
 	if (typeof str === 'string') {
 		const string = str.trim().replace(/(\r\n|\n|\r)/gm, '') // remove line breaks
 		const chars = string.length
@@ -13,3 +13,5 @@ export const countWordsAndChars = str => {
 		return `${words} words, ${chars} chars`
 	} else return str
 }
+
+export default countWordsAndChars

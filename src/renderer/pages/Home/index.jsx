@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, Suspense, lazy, useState } from 'react'
 import useCardArray from 'renderer/hooks/useCardArray'
 import filterCardArray from 'renderer/utils/filterCardArray'
-import { sortCardArrayByType } from 'renderer/utils/sortCardArray'
+import sortCardArrayByType from 'renderer/utils/sortCardArray'
 import Actionbar from 'renderer/components/Sidebar/Actionbar'
 import Grid from 'renderer/components/Grid'
 import Svg from 'renderer/components/UI/svg'

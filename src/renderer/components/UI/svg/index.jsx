@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import sprite from 'renderer/res/img/sprite.svg'
 
 const Svg = ({ width, height, id }) => (

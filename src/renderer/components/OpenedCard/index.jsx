@@ -3,7 +3,7 @@ import styles from './OpenedCard.module.scss'
 import Svg from 'renderer/components/UI/svg'
 import makeFriendlyDate from 'renderer/utils/makeFriendlyDate'
 import TextareaAutosize from 'react-textarea-autosize'
-import { countWordsAndChars } from './helper'
+import countWordsAndChars from 'renderer/utils/countWordsAndChars'
 
 const openedCardInitialValue = { id: null, title: null, description: null, birth: null }
 

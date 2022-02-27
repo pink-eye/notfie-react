@@ -8,10 +8,10 @@ const byMaxContentLength = cardArray => cardArray?.sort((a, b) => sumContent(b) 
 
 const byMinContentLength = cardArray => cardArray?.sort((a, b) => sumContent(a) - sumContent(b))
 
-export const sortCardArrayByType = (cardArray, type) => {
-	if (!type) return cardArray
+const sortCardArrayByType = (cardArray, type) => {
+	if (!type || cardArray.length === 0) return cardArray
 
-switch (type) {
+	switch (type) {
 		case 'Newest':
 			return byNewest(cardArray)
 
@@ -25,3 +25,5 @@ switch (type) {
 			return byMinContentLength(cardArray)
 	}
 }
+
+export default sortCardArrayByType

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import useClickOutside from 'renderer/hooks/useClickOutside'
 import useToggle from 'renderer/hooks/useToggle'
 import queryClosest from 'renderer/utils/queryClosest'
