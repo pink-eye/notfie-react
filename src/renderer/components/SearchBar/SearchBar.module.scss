@@ -1,5 +1,6 @@
 .search {
 	position: fixed;
+	bottom: 0;
 	z-index: 2;
 
 	display: flex;
@@ -9,17 +10,17 @@
 	background-color: var(--color-bg-form);
 
 	transition:
-		bottom var(--trns),
+		transform var(--trns),
 		visibility var(--trns);
 
 	&:not(.onOpen) {
-		bottom: -70px;
+		transform: translateY(100%);
 
 		visibility: hidden;
 	}
 
 	&.onOpen {
-		bottom: 0;
+		transform: translateY(0%);
 
 		visibility: visible;
 	}

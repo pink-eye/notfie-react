@@ -4,9 +4,7 @@
 
 	background-color: var(--color-bg-form);
 
-	transition:
-		background-color var(--trns),
-		bottom var(--trns);
+	transition: background-color var(--trns);
 
 	@media (min-width: 768px) {
 		top: 0;
