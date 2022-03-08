@@ -109,7 +109,7 @@ const Home: FC = () => {
 	const handleChangeSearchBar = (text: string) => {
 		if (!cardArray?.length) return
 
-		if (text.length) {
+		if (!text.length) {
 			setCardArrayClone(() => cardArray)
 			return
 		}
