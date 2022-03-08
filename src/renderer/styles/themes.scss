@@ -1,12 +1,12 @@
 .light {
-	--color-bg: hsl(225, 100%, 95%);
+	--color-bg: hsl(225, 100%, 90%);
 	--color-bg-form: hsl(0, 0%, 100%);
 	--color-bs: hsla(210, 10%, 60%, .3);
 	--color-title: hsl(226, 15%, 28%);
 	--color-description: hsl(205, 10%, 30%);
 	--color-birth: hsl(0, 0%, 55%);
 	--color-bs-btn: hsla(220, 100%, 50%, .4);
-	--color-bg-field: hsl(220, 50%, 95%);
+	--color-bg-field: hsl(220, 50%, 90%);
 	--link: hsl(320, 100%, 50%);
 	--invalid: hsl(0, 100%, 70%);
 	--valid: hsl(145, 100%, 36%);
@@ -20,7 +20,6 @@
 
 	// TABLE
 
-	--color-bg-table-head: hsl(226, 15%, 28%);
 	--color-text-table-head: hsl(0, 0%, 100%);
 	--color-bg-table-row-even: hsl(214, 78%, 99%);
 
@@ -38,14 +37,14 @@
 }
 
 .dark {
-	--color-bg: hsl(216, 61%, 12%);
-	--color-bg-form: hsl(215, 78%, 16%);
+	--color-bg: hsl(215, 90%, 10%);
+	--color-bg-form: hsl(215, 90%, 19%);
 	--color-bs: rgba(0, 0, 0, .2);
 	--color-title: hsl(0, 0%, 100%);
 	--color-description: hsl(0, 0%, 75%);
 	--color-birth: hsl(0, 0%, 65%);
 	--color-bs-btn: hsla(220, 100%, 50%, .2);
-	--color-bg-field: hsl(215, 70%, 25%);
+	--color-bg-field: hsl(215, 90%, 25%);
 	--link: hsl(140, 100%, 50%);
 	--invalid: hsl(0, 100%, 70%);
 	--valid: hsl(138, 100%, 70%);
@@ -59,14 +58,13 @@
 
 	// TABLE
 
-	--color-bg-table-head: hsl(226, 92%, 6%);
 	--color-text-table-head: hsl(0, 0%, 100%);
-	--color-bg-table-row-even: hsl(215, 78%, 20%);
+	--color-bg-table-row-even: hsl(220, 90%, 18%);
 
 	// CARD
 
-	--color-border-card: hsl(219, 80%, 12%);
-	--color-bg-backside-card: hsl(215, 78%, 20%);
+	--color-border-card: hsl(220, 90%, 9%);
+	--color-bg-backside-card: hsl(215, 90%, 22%);
 
 	// KEYBOARD BTN
 
