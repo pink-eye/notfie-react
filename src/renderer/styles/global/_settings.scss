@@ -107,3 +107,7 @@ label {
 
 	background-color: var(--color-accent);
 }
+
+svg {
+	pointer-events: none;
+}
