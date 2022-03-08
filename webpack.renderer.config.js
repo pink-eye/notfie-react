@@ -1,4 +1,5 @@
 const rules = require('./webpack.rules')
+const plugins = require('./webpack.plugins')
 const path = require('path')
 
 const extraRules = [
@@ -15,6 +16,7 @@ const extraRules = [
 rules.push(...extraRules)
 
 module.exports = {
+	plugins,
 	module: {
 		rules,
 	},
@@ -23,7 +25,7 @@ module.exports = {
 			renderer: path.resolve(__dirname, 'src/renderer'),
 			main: path.resolve(__dirname, 'src/main'),
 		},
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.ts', '.jsx', '.tsx'],
 		preferRelative: true,
 	},
 	experiments: {
