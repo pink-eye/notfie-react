@@ -152,6 +152,8 @@
 
 		&:before {
 			border: 2px solid var(--color-description);
+
+			opacity: .7;
 		}
 	}
 
@@ -162,6 +164,8 @@
 
 		&:before {
 			border: 2px solid hsl(0, 0%, 100%);
+
+			background-color: hsl(0, 0%, 100%);
 		}
 	}
 
