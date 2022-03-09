@@ -1,5 +1,4 @@
 <p align="center">
-  <a href="" rel="noopener">
  <img width=200px height=200px src="https://i.imgur.com/yCUm713.png" alt="Project logo"></a>
 </p>
 
@@ -18,22 +17,20 @@
 -   [Screenshots](#screenshots)
 -   [Features](#features)
 -   [Building](#building)
--   [Built Using](#built_using)
--   [Authors](#authors)
 -   [License](#license)
 
 ## 🧐 About <a name = "about"></a>
 
 The main goal of the project is to create simple and comfortable application to make notes.
 
-## 📷 Screenshots
+## 📷 Screenshots <a name = "screenshots"></a>
 
-<img src="https://i.imgur.com/OQot38d.webp">
-<img src="https://i.imgur.com/85jCTuf.webp">
-<img src="https://i.imgur.com/3DHXxPh.webp">
-<img src="https://i.imgur.com/nEvJVbx.webp">
+<img src="https://i.imgur.com/JPrpdth.webp">
+<img src="https://i.imgur.com/xz3PyOK.webp">
+<img src="https://i.imgur.com/LJNYF74.webp">
+<img src="https://i.imgur.com/SJ8GOHg.webp">
 
-## 💥 Features
+## 💥 Features <a name = "features"></a>
 
 -   Shortcuts
 -   System, dark and light themes
@@ -42,7 +39,7 @@ The main goal of the project is to create simple and comfortable application to 
 -   Responsive layout (it means the app looks good on each device)
 -   Launch app when system starts (optional)
 
-## 🛠️ Building
+## 🛠️ Building <a name = "building"></a>
 
 ```
 # Clone this repo
@@ -58,16 +55,7 @@ yarn run package
 yarn run make
 ```
 
-## ⛏️ Built Using <a name = "built_using"></a>
-
--   [Electron Forge](https://electronforge.io/)
--   [React](https://reactjs.org/)
-
-## ✍️ Authors <a name = "authors"></a>
-
--   [@pink-eye](https://github.com/pink-eye) - Idea & Initial work
-
-## 😜 License
+## 😜 License <a name = "license"></a>
 
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
