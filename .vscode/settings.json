@@ -1,3 +1,7 @@
 {
-	"typescript.tsdk": "node_modules\\typescript\\lib"
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"path-intellisense.mappings": {
+		"renderer": "${workspaceRoot}/src/renderer",
+		"main": "${workspaceRoot}/src/main"
+	}
 }
