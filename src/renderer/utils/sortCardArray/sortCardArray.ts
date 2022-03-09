@@ -13,7 +13,7 @@ const byMinContentLength = (cardArray: ICard[]): ICard[] =>
 	cardArray?.sort((a, b) => sumContent(a) - sumContent(b))
 
 const sortCardArrayByType = (cardArray: ICard[], type: string): ICard[] => {
-	if (!type || !cardArray.length) return cardArray
+	if (!cardArray.length) return cardArray
 
 	switch (type) {
 		case 'Newest':

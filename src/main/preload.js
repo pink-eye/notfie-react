@@ -10,7 +10,7 @@ let AutoLauncher = new AutoLaunch({
 	isHidden: isMinimizedLaunch,
 })
 
-const STORAGE_PATH = path.join(__dirname, 'storage.json')
+const STORAGE_PATH = path.resolve(__dirname, 'storage.json')
 
 contextBridge.exposeInMainWorld('API', {
 	readStorage: () =>
@@ -45,7 +45,7 @@ contextBridge.exposeInMainWorld('API', {
 					return
 				}
 			})
-			.catch(console.log)
+			.catch(console.error)
 	},
 
 	toggleMinimizedLaunch: option => (isMinimizedLaunch = option),
