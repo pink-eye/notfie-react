@@ -1,7 +1,7 @@
 {
 	"name": "notfie",
 	"productName": "Notfie",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "The open-source app to make notes. Licensed GPLv3",
 	"main": ".webpack/main",
 	"scripts": {
