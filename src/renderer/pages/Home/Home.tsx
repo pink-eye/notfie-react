@@ -1,26 +1,21 @@
 import React, { useEffect, useRef, Suspense, lazy, useState, FC } from 'react'
 import useCardArray from 'renderer/hooks/useCardArray'
-import filterCardArray from 'renderer/utils/filterCardArray/filterCardArray'
-import sortCardArrayByType from 'renderer/utils/sortCardArray/sortCardArray'
 import Actionbar from 'renderer/components/Sidebar/Actionbar'
 import Grid from 'renderer/components/Grid'
 import Svg from 'renderer/components/UI/svg'
 import Modal from 'renderer/components/Modal/Modal'
-import stylesGrid from 'renderer/components/Grid/Grid.module.scss'
 import Preloader from 'renderer/components/Preloader/Preloader'
 import SearchBar from 'renderer/components/SearchBar'
-import { v4 as uuidV4 } from 'uuid'
-import copyToClipboard from 'renderer/utils/copyToClipboard'
 import { ICard, KeyboardEvent } from 'renderer/types'
 
 const OpenedCard = lazy(() => import('renderer/components/OpenedCard/OpenedCard'))
 
 const Home: FC = () => {
 	const [cardArray, _, updateCardArray, removeCard] = useCardArray()
-	const [cardArrayClone, setCardArrayClone] = useState(cardArray)
+	const [cardArrayClone, setCardArrayClone] = useState<ICard[]>()
 	const [sortType, setSortType] = useState('Newest')
 
-	useEffect(() => setCardArrayClone(() => cardArray), [cardArray])
+	useEffect(() => setCardArrayClone(cardArray), [cardArray])
 
 	const modalRef = useRef(null)
 	const searchBarRef = useRef(null)
@@ -45,10 +40,14 @@ const Home: FC = () => {
 
 		gridItem.addEventListener('transitionend', () => removeCard(id), { once: true })
 
-		gridItem.classList.add(`${stylesGrid.onDeleting}`)
+		import('renderer/components/Grid/Grid.module.scss')
+			.then(({ default: stylesGrid }) => {
+				gridItem.classList.add(`${stylesGrid.onDeleting}`)
 
-		card = null
-		gridItem = null
+				card = null
+				gridItem = null
+			})
+			.catch(console.error)
 	}
 
 	const handleKeyDown = ({ ctrlKey, keyCode }: KeyboardEvent) => {
@@ -85,47 +84,58 @@ const Home: FC = () => {
 		return () => document.removeEventListener('keydown', handleKeyDown)
 	})
 
-	function openCard(card: ICard) {
+	const openCard = (card: ICard) => {
 		openedCardRef.current?.set(card)
 		openModal()
 	}
 
-	const copyCard = (id: string) => {
-		const reqCard = cardArray.find((item: ICard) => item.id === id)
+	const copyCard = (id: string) =>
+		import('renderer/utils/copyToClipboard')
+			.then(({ default: copyToClipboard }) => {
+				const reqCard = cardArray.find((item: ICard) => item.id === id)
+				copyToClipboard(`Title: ${reqCard.title}, Description: ${reqCard.description}`)
+			})
+			.catch(console.error)
 
-		copyToClipboard(`Title: ${reqCard.title}, Description: ${reqCard.description}`)
-	}
-
-	const handleClickAdd = () => {
-		const newCard = { title: '', description: '', id: uuidV4(), birth: Date.now() }
-		openCard(newCard)
-	}
+	const handleClickAdd = () =>
+		import('uuid')
+			.then(({ v4: uuidV4 }) => {
+				const newCard = { title: '', description: '', id: uuidV4(), birth: Date.now() }
+				openCard(newCard)
+			})
+			.catch(console.error)
 
 	const handleClickRemove = (cardID: string) => {
 		closeModal()
 		removeCardAnimated(cardID)
 	}
 
-	const handleChangeSearchBar = (text: string) => {
-		if (!cardArray?.length) return
+	const handleChangeSearchBar = (text: string) =>
+		import('renderer/utils/filterCardArray')
+			.then(({ default: filterCardArray }) => {
+				if (!cardArray?.length) return
 
-		if (!text.length) {
-			setCardArrayClone(() => cardArray)
-			return
-		}
+				if (!text.length) {
+					setCardArrayClone(cardArray)
+					return
+				}
 
-		const filteredCardArray = filterCardArray(cardArray, text.toLowerCase())
-		setCardArrayClone(() => filteredCardArray)
-	}
+				const filteredCardArray = filterCardArray(cardArray, text.toLowerCase())
+				setCardArrayClone(filteredCardArray)
+			})
+			.catch(console.error)
 
-	const sortCardArray = (type: string) => {
-		if (!cardArray?.length || !type) return
+	const sortCardArray = (type: string) =>
+		import('renderer/utils/sortCardArray')
+			.then(({ default: sortCardArrayByType }) => {
+				if (!cardArray?.length) return
 
-		setSortType(() => type)
+				const sortedCardArray = sortCardArrayByType(cardArray, type)
+				setCardArrayClone(sortedCardArray)
 
-		const sortedCardArrayClone = sortCardArrayByType(cardArrayClone, type)
-		setCardArrayClone(() => sortedCardArrayClone)
-	}
+				setSortType(type)
+			})
+			.catch(console.error)
 
 	const focusFirstCard = () => {
 		if (document.activeElement.classList.contains('card')) return
